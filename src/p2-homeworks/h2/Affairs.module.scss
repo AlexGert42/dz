@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.affair {
+  height: 40vh;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+  .affair__filter_block {
+    .affair__btn {
+      border: 1px solid #68686e;
+      padding: 15px;
+      margin: 10px 10px;
+      &:focus {
+        background-color: red;
+        color: white;
+      }
+    }
+  }
+
+  .affair__btn_close {
+    padding: 10px;
+    margin: 10px 30px;
+  }
+}

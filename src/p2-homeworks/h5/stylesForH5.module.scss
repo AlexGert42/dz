@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.header {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  .header__inner {
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header__title {
+      font-size: 56px;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      text-transform: capitalize;
+    }
+
+    .header__menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .header__burger {
+        border: none;
+        padding: 10px;
+        margin: 10px 0 10px 30px;
+        position: relative;
+        width: 35px;
+        height: 30px;
+        display: block;
+        z-index: 3;
+        background-color: #00000000;
+
+        span {
+          top: 13px;
+          position: absolute;
+          background-color: #fff;
+          width: 100%;
+          height: 2px;
+          left: 0;
+          transition: all 0.3s ease 0s;
+        }
+
+        &::before,
+        &::after {
+          content: "";
+          background-color: #fff;
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          left: 0;
+          transition: all 0.3s ease 0s;
+        }
+
+        &::before {
+          top: 0;
+        }
+
+        &::after {
+          bottom: 0;
+        }
+
+        &.active {
+          &::before {
+            transform: rotate(45deg);
+            top: 14px;
+          }
+
+          &::after {
+            transform: rotate(-45deg);
+            bottom: 14px;
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+
+      .header__burger_menu {
+        display: flex;
+        margin-right: -500px;
+        opacity: 0;
+
+        &.active {
+          margin-right: 0px;
+          animation: showMenu .5s ease-in;
+          opacity: 1;
+        }
+
+        .header__item {
+          margin-left: 30px;
+
+          a {
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            opacity: .7;
+
+            &:hover {
+              transition: opacity .3s ease-in;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes showMenu {
+  0% {
+    margin-right: -500px;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    margin-right: 0px;
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

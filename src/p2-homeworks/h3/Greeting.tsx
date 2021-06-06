@@ -19,7 +19,7 @@ const Greeting: React.FC<GreetingPropsType> = (
         <div className={s.task3}>
             <input value={name} onChange={setNameCallback} className={`${s.task3__input} ${inputClass}`}/>
             <button className={s.task3__btn} onClick={addUser}>add</button>
-            <span className={s.task3__count}>count name: {totalUsers}</span>
+            <span className={s.task3__count}>count users: {totalUsers}</span>
             <span className={s.task3__error}>{error}</span>
         </div>
     )

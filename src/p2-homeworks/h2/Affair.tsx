@@ -10,10 +10,9 @@ type AffairPropsType = {
 
 function Affair(props: AffairPropsType) {
     const deleteCallback = () => props.deleteAffairCallback(props.affair._id)
-
     return (
         <div>
-            // show some text
+            {props.affair.name}
             <button className={style.affair__btn_close} onClick={deleteCallback}>X</button>
         </div>
     )

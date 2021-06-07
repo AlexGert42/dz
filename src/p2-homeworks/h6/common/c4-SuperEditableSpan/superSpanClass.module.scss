@@ -1,0 +1,30 @@
+.superSpan {
+  display: inline-block;
+  margin: 30px 30px 15px 0;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 0 15px 15px 0;
+  text-transform: capitalize;
+  opacity: 1;
+
+  &:hover {
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    padding-bottom: 13px;
+    opacity: 0;
+    animation: showSpan 1s infinite ease-in;
+  }
+}
+
+@keyframes showSpan {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

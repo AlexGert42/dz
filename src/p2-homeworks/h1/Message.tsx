@@ -16,7 +16,7 @@ function Message({avatar, name, message, time}: PropsType) {
                 <img className={style.message__avatar} src={avatar} alt="avatar"/>
                 <div className={style.message__content}>
                     <h2 className={style.message__title}>{name}</h2>
-                    <div className={style.message__text}>{message} <span>{time}</span></div>
+                    <div className={style.message__text}>{message} <span className={style.message__time}>{time}</span></div>
                 </div>
             </div>
         </div>

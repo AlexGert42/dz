@@ -75,7 +75,7 @@
     color: #fff;
 
 }
-span {
+.message__time {
     /*margin: 0 0 0 30px;*/
     font-size: 11px;
     color: #68686e;

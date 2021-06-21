@@ -1,27 +1,48 @@
 import React, {useState} from 'react'
 import SuperSelect from './common/c5-SuperSelect/SuperSelect'
 import SuperRadio from './common/c6-SuperRadio/SuperRadio'
+import {Grid} from "@material-ui/core";
+
+const style: any = {
+    container: {
+        padding: '20px 0'
+    },
+    block: {
+        margin: '20px'
+    },
+    select: {
+        width: '150px'
+    },
+    radio: {
+
+    }
+}
 
 const arr = ['x', 'y', 'z']
 
+
+
 function HW7() {
     const [value, onChangeOption] = useState(arr[1])
-
+    console.log(value)
     return (
-        <div>
+        <div style={style.container}>
             <hr/>
             homeworks 7
 
             {/*should work (должно работать)*/}
-            <div>
+            <div style={style.block}>
                 <SuperSelect
+                    style={style.select}
                     options={arr}
                     value={value}
                     onChangeOption={onChangeOption}
                 />
             </div>
-            <div>
+
+            <div style={style.block}>
                 <SuperRadio
+                    style={style.radio}
                     name={'radio'}
                     options={arr}
                     value={value}

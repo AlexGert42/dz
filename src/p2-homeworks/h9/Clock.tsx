@@ -1,51 +1,80 @@
 import React, {useState} from 'react'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import {ButtonGroup, Paper, Typography} from "@material-ui/core";
+
+const style: any = {
+    clockContainer: {
+        width: '300px',
+        minHeight: '220px',
+        margin: '20px 0',
+        padding: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    time: {
+        cursor: 'pointer'
+    },
+    date: {
+        textAlign: 'center'
+    }
+}
 
 function Clock() {
-    const [timerId, setTimerId] = useState<number>(0)
-    const [date, setDate] = useState<Date>()
+
+    const [timerId, setTimerId] = useState<any>(0)
+    const [date, setDate] = useState<string>(
+        `Текущее время:
+        ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}
+        `
+    )
     const [show, setShow] = useState<boolean>(false)
 
-    const stop = () => {
-        // stop
-    }
+    const stop = () => clearInterval(timerId)
+
     const start = () => {
         stop()
         const id: number = window.setInterval(() => {
-            // setDate
+            setDate(
+                `Текущее время:
+        ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}
+        `
+            )
         }, 1000)
         setTimerId(id)
     }
 
     const onMouseEnter = () => {
-        // show
+        setShow(true)
     }
     const onMouseLeave = () => {
-        // close
+        setShow(false)
     }
 
-    const stringTime = 'Time' // fix with date
-    const stringDate = 'Date' // fix with date
+    const stringTime = date // fix with date
+    const stringDate = new Date().toString() // fix with date
 
     return (
-        <div>
-            <div
+        <Paper elevation={5} style={style.clockContainer}>
+            <Typography
+                style={style.time}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
             >
                 {stringTime}
-            </div>
+            </Typography>
 
             {show && (
-                <div>
+                <Typography style={style.date}>
                     {stringDate}
-                </div>
+                </Typography>
             )}
-
-            <SuperButton onClick={start}>start</SuperButton>
-            <SuperButton onClick={stop}>stop</SuperButton>
-
-        </div>
+            <ButtonGroup>
+                <SuperButton onClick={start}>start</SuperButton>
+                <SuperButton onClick={stop}>stop</SuperButton>
+            </ButtonGroup>
+        </Paper>
     )
 }
 

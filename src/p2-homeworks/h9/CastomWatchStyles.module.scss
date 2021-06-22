@@ -1,0 +1,125 @@
+.watch {
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+  position: relative;
+  .watch__inner {
+    &:hover {
+      .watch__month {
+        animation: activeBlockMonth 1s ease;
+        margin-left: 50px;
+      }
+      .watch__time {
+        animation: activeBlockTime 1s ease;
+        margin-left: 100px;
+      }
+    }
+    .watch__year {
+      width: 300px;
+      height: 100px;
+      background-color: #68686e;
+      &:hover {
+        &:before {
+          position: absolute;
+          animation: showBlockBefore 1s ease;
+          display: block;
+          content: '';
+          background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,234,129,1) 58%, rgba(0,203,255,0) 100%);
+
+          //background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,63,1) 65%, rgba(0,255,162,0) 100%);
+          width: 360px;
+          height: 100px;
+
+        }
+      }
+    }
+    .watch__month {
+      width: 300px;
+      height: 100px;
+      background-color: #2a2a2b;
+      &:hover {
+
+        &:before {
+          position: absolute;
+          animation: showBlockBefore 1s ease;
+          display: block;
+          content: '';
+          background: linear-gradient(90deg, rgba(43,0,0,1) 0%, rgba(255,196,0,1) 53%, rgba(0,203,255,0) 100%);
+          width: 360px;
+          height: 100px;
+        }
+      }
+    }
+    .watch__time {
+      width: 300px;
+      height: 100px;
+      background-color: #1a1a1a;
+
+      &:hover {
+
+        &:before {
+          position: absolute;
+          animation: showBlockBefore 1s ease;
+          display: block;
+          content: '';
+          background: linear-gradient(90deg, rgba(43,0,0,1) 0%, rgba(255,0,0,1) 53%, rgba(0,203,255,0) 100%);
+          width: 360px;
+          height: 100px;
+
+        }
+      }
+    }
+  }
+}
+
+@keyframes activeBlockMonth {
+  0%{
+      margin-left: 0px;
+  }
+  100% {
+      margin-left: 50px;
+  }
+}
+@keyframes activeBlockTime {
+  0%{
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 100px;
+  }
+}
+
+@keyframes showBlockBefore {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 120%;
+  }
+}
+
+
+.number_year {
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  font-size: 50px;
+  .number {
+
+    .number__item {
+      position: relative;
+      width: 30px;
+      height: 5px;
+      background-color: black;
+      .item_w {
+        .item__1 {
+
+        }
+      }
+    }
+  }
+}
+
+
+
+

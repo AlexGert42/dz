@@ -1,10 +1,11 @@
 import React from 'react'
+import HW8 from "../../h8/HW8";
 
 
 function Junior() {
     return (
         <div>
-            Junior
+            <HW8/>
         </div>
     )
 }

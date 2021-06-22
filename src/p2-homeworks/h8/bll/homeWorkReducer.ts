@@ -1,8 +1,22 @@
+import { UserType } from "../HW8"
+
+type sortUpActionType = {
+    type: string
+    payload: string
+}
+type sortDownActionType = {
+    type: string
+    payload: string
+}
+type checkActionType = {
+    type: string
+    payload: number
+}
+
+type homeWorkReducerActionType = sortUpActionType | sortDownActionType | checkActionType
 
 
-
-
-export const homeWorkReducer = (state: any, action: any): any => {
+export const homeWorkReducer = (state: UserType[], action: homeWorkReducerActionType): UserType[] => {
     let newState = [...state]
     switch (action.type) {
         case 'sort':

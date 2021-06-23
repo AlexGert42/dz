@@ -1,31 +1,86 @@
 
 .number {
-  font-size: 30px;
   display: block;
+  position: relative;
   .number__item {
-    width: 0;
-    height: 0;
-    border: 50px solid transparent;
-    border-bottom-color: #53BA88;
-    position: relative;
-    top: -50px;
-    background-color: black;
-    &:before {
-      height: 10px;
-      background-color: black;
+    width: 6px;
+    height: 20px;
+    position: absolute;
+    &.active {
+      background: rgba(0, 0, 0, 0.79);
+      box-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #ff0101 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+
+      &:before {
+        border-bottom: 3px solid rgba(3, 3, 3, 0.79);
+      }
+
+      &:after {
+        border-top: 3px solid rgba(10, 10, 10, 0.79);
+      }
     }
-    &:after {
+
+
+    &.item_w {
+      transform: rotate(90deg);
+    }
+
+    &.item_h {
+      transform: rotate(0deg);
+    }
+
+    &.item_1 {
+      bottom: 0;
+    }
+
+    &.item_2 {
+      top: -6px;
+      left: 13px;
+    }
+
+    &.item_3 {
+      top: 22px;
+      left: 13px;
+    }
+
+    &.item_4 {
+      top: 36px;
+      left: 0px;
+    }
+
+    &.item_6 {
+      top: -6px;
+      left: -13px;
+    }
+
+    &.item_5 {
+      top: 22px;
+      left: -13px;
+    }
+
+    &.item_7 {
+      top: 8px;
+      left: 0px;
+    }
+
+    &:before, &:after {
       content: "";
       width: 0;
-      height: 100px;
-      background-color: black;
+      height: 0;
       position: absolute;
-      left: -50px;
-      top: 100px;
-      border: 50px solid transparent;
-      border-top-color: #53BA88;
+      left: 0;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+    }
+
+    &:before {
+      top: -3px;
+    }
+
+    &:after {
+      bottom: -3px;
     }
   }
+
 }
 
 

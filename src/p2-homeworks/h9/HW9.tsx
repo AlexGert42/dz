@@ -5,13 +5,13 @@ import AlternativeClock from "./AlternativeClock";
 function HW9() {
     return (
 
-            <div style={{padding: '100px', background: '#000', display: 'flex', justifyContent: 'space-between'}}>
-
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                homeworks 8
                 {/*should work (должно работать)*/}
                 <Clock/>
 
                 {/*для личного творчества, могу проверить*/}
-                <div>
+                <div style={{ background: '#000', padding: '100px'}}>
                     <AlternativeClock/>
                 </div>
             </div>

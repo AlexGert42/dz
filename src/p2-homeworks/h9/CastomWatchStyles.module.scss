@@ -1,5 +1,5 @@
 .watch {
-  width: 300px;
+  width: 400px;
   height: 300px;
   cursor: pointer;
   position: relative;
@@ -25,6 +25,7 @@
       color: #FFFFFF;
       background: #333333;
       box-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #ff0000 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+
       &:hover {
         &:before {
           position: absolute;
@@ -108,7 +109,7 @@
     width: 0;
   }
   100% {
-    width: 120%;
+    width: 90%;
   }
 }
 
@@ -119,6 +120,7 @@
   width: 100%;
   opacity: 1;
   animation: showTime .5s ease-in-out;
+
   &.year {
     left: 80px;
     top: 33px;
@@ -169,6 +171,8 @@
     opacity: 1;
   }
 }
+
+
 
 
 

@@ -3,6 +3,15 @@ import style from './CastomWatchStyles.module.scss'
 import styleNumber from './CastomNumberStyles.module.scss'
 import {log} from "util";
 
+const getTime = () => {
+    let newHours = new Date().getHours().toString()
+    let newMinutes = new Date().getMinutes().toString()
+    let newSeconds = new Date().getSeconds().toString()
+    let hours = newHours.length === 1 ? ['0', newHours] : newHours.split('')
+    let minutes = newMinutes.length === 1 ? ['0', newMinutes] : newMinutes.split('')
+    let seconds = newSeconds.length === 1 ? ['0', newSeconds] : newSeconds.split('')
+    return [...hours, ...minutes, ...seconds]
+}
 
 const getMonth = () => {
     let newMonth = ((new Date().getMonth()) + 1).toString()
@@ -18,35 +27,29 @@ const getYrear = () => {
 
 
 function AlternativeClock() {
-    const getTime = () => {
-        let newHours = new Date().getHours().toString()
-        let newMinutes = new Date().getMinutes().toString()
-        let newSeconds = new Date().getSeconds().toString()
-        let hours = newHours.length === 1 ? ['0', newHours] : newHours.split('')
-        let minutes = newMinutes.length === 1 ? ['0', newMinutes] : newMinutes.split('')
-        let seconds = newSeconds.length === 1 ? ['0', newSeconds] : newSeconds.split('')
-        return [...hours, ...minutes, ...seconds]
-    }
-
 
     const [time, setTime] = useState(getTime)
     const [month, setMonth] = useState(getMonth)
     const [year, setYear] = useState(getYrear)
 
-    const [show, setShow] = useState(false)
+    const [showTime, setShowTime] = useState(false)
+    const [showMonth, setShowMonth] = useState(false)
+    const [showYear, setShowYear] = useState(false)
 
-
-    const showTime = () => {
+    const show = (setShow: any, flag: boolean) => {
         setTimeout(() => {
-            setShow(true)
+            setShow(flag)
         }, 500)
     }
 
 
-    setInterval(() => {
-        setTime(getTime)
-    }, 1000)
-
+    useMemo(() => {
+        setInterval(() => {
+            setTime(getTime)
+            setMonth(getMonth)
+            setYear(getYrear)
+        }, 1000)
+    }, [])
 
     return (
         <div className={style.watch}>
@@ -54,21 +57,21 @@ function AlternativeClock() {
 
                 <div
                     className={style.watch__year}
-                    onMouseEnter={showTime}
-                    onMouseLeave={() => setShow(false)}>
-                    {show && <YearBlock arrNum={year}/>}
+                    onMouseEnter={() => show(setShowYear, true)}
+                    onMouseLeave={() => show(setShowYear, false)}>
+                    {showYear && <YearBlock arrNum={year}/>}
                 </div>
                 <div
                     className={style.watch__month}
-                    onMouseEnter={showTime}
-                    onMouseLeave={() => setShow(false)}>
-                    {show && <MonthBlock arrNum={month}/>}
+                    onMouseEnter={() => show(setShowMonth, true)}
+                    onMouseLeave={() => show(setShowMonth, false)}>
+                    {showMonth && <MonthBlock arrNum={month}/>}
                 </div>
                 <div
                     className={style.watch__time}
-                    onMouseEnter={showTime}
-                    onMouseLeave={() => setShow(false)}>
-                    {show && <TimeBlock arrNum={time}/>}
+                    onMouseEnter={() => show(setShowTime, true)}
+                    onMouseLeave={() => show(setShowTime, false)}>
+                    {showTime && <TimeBlock arrNum={time}/>}
                 </div>
             </div>
         </div>
@@ -142,7 +145,6 @@ const YearBlock = ({arrNum}: any) => {
 }
 
 const MonthBlock = ({arrNum}: any) => {
-
     return (
         <div className={`${style.number} ${style.month}`}>
             <div className={style.number_item}>

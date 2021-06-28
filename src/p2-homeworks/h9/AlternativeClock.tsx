@@ -1,7 +1,6 @@
-import React, {useEffect, useMemo, useState} from 'react'
+import React, {useMemo, useState} from 'react'
 import style from './CastomWatchStyles.module.scss'
 import styleNumber from './CastomNumberStyles.module.scss'
-import {log} from "util";
 
 const getTime = () => {
     let newHours = new Date().getHours().toString()
@@ -25,6 +24,14 @@ const getYrear = () => {
     return [...newYrear]
 }
 
+type propsType = string[]
+type functionType = () => propsType
+type numberBlockPropsType = {
+    num: string
+}
+type timeBlockProps = {
+    arrNum: string[]
+}
 
 function AlternativeClock() {
 
@@ -32,16 +39,15 @@ function AlternativeClock() {
     const [month, setMonth] = useState(getMonth)
     const [year, setYear] = useState(getYrear)
 
-    const [showTime, setShowTime] = useState(false)
-    const [showMonth, setShowMonth] = useState(false)
-    const [showYear, setShowYear] = useState(false)
+    const [showTime, setShowTime] = useState<boolean>(false)
+    const [showMonth, setShowMonth] = useState<boolean>(false)
+    const [showYear, setShowYear] = useState<boolean>(false)
 
     const show = (setShow: any, flag: boolean) => {
         setTimeout(() => {
             setShow(flag)
         }, 500)
     }
-
 
     useMemo(() => {
         setInterval(() => {
@@ -54,7 +60,6 @@ function AlternativeClock() {
     return (
         <div className={style.watch}>
             <div className={style.watch__inner}>
-
                 <div
                     className={style.watch__year}
                     onMouseEnter={() => show(setShowYear, true)}
@@ -81,8 +86,11 @@ function AlternativeClock() {
 export default AlternativeClock
 
 
-const NumberBlock = ({num}: any) => {
+
+
+const NumberBlock = ({num}: numberBlockPropsType) => {
     const [activItem, setActivAtem] = useState(new Array(7).fill(''))
+
     useMemo(() => {
         switch (num) {
             case '0':
@@ -125,7 +133,7 @@ const NumberBlock = ({num}: any) => {
 }
 
 
-const YearBlock = ({arrNum}: any) => {
+const YearBlock = ({arrNum}: timeBlockProps) => {
     return (
         <div className={`${style.number} ${style.year}`}>
             <div className={style.number_item}>
@@ -144,7 +152,7 @@ const YearBlock = ({arrNum}: any) => {
     )
 }
 
-const MonthBlock = ({arrNum}: any) => {
+const MonthBlock = ({arrNum}: timeBlockProps) => {
     return (
         <div className={`${style.number} ${style.month}`}>
             <div className={style.number_item}>
@@ -168,7 +176,7 @@ const MonthBlock = ({arrNum}: any) => {
 }
 
 
-const TimeBlock = ({arrNum}: any) => {
+    const TimeBlock = ({arrNum}: timeBlockProps) => {
     return (
         <div className={`${style.number} ${style.time}`}>
 

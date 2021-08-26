@@ -1,0 +1,23 @@
+.range {
+  display: block;
+  position: relative;
+  background-color: #000;
+  width: 400px;
+  height: 7px;
+  appearance: none;
+  outline: none;
+  border-radius: 5px;
+  -webkit-appearance: none;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 25px;
+    border-radius: 15px;
+    box-shadow: 2px 3px 8px 0px rgba(34, 60, 80, 0.5) inset;
+    background: rgb(50, 0, 29);
+    background: linear-gradient(0deg, rgba(50, 0, 29, 1) 0%, rgb(231, 100, 158) 18%, rgba(207, 87, 141, 1) 82%, rgba(250, 239, 244, 1) 100%);
+    cursor: pointer;
+  }
+}

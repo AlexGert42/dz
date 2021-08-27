@@ -7,41 +7,43 @@ function HW11() {
     const [value2, setValue2] = useState(100)
 
 
-
     const onChangeRange = (num: number) => {
         setValue1(num)
     }
     const onChangeRangeDbl = ([num1, num2]: number[]) => {
-        console.log([num1, num2])
-        setValue2(num1)
+        setValue1(num1)
         setValue2(num2)
     }
 
     return (
-        <div>
+        <div style={{padding: '50px 0'}}>
             <hr/>
             homeworks 11
 
             {/*should work (должно работать)*/}
             <div>
-                <div>{value1}</div><br/>
+                <div>{value1}</div>
+                <br/>
                 <SuperRange
                     value={value1}
                     onChangeRange={onChangeRange}
                     // сделать так чтоб value1 изменялось
                 />
             </div>
-
+            <br/>
+            <br/>
             <div>
-                <div>{value1}</div><br/>
+                <span>{value1} / </span>
+                <span>{value2}</span><br/><br/>
                 <SuperDoubleRange
                     onChangeRange={onChangeRangeDbl}
                     value={[value1, value2]}
                     // сделать так чтоб value1 и value2 изменялось
                 />
-                <span>{value2}</span>
-            </div>
 
+            </div>
+            <br/>
+            <br/>
             <hr/>
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeSuperRange/>*/}

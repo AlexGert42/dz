@@ -10,10 +10,10 @@ type SuperRadioPropsType = DefaultRadioPropsType & {
 
 const SuperRadio: React.FC<SuperRadioPropsType> = (
     {
-        type, name,
+        name,
         options, value,
         onChange, onChangeOption,
-        ...restProps
+
     }
 ) => {
 
@@ -31,6 +31,7 @@ const SuperRadio: React.FC<SuperRadioPropsType> = (
                 value={o}
                 onChange={onChangeCallback}
                 name={o}
+
             />
             {o}
         </label>
